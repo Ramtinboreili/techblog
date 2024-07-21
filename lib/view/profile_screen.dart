@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:techblog/color_Manager.dart';
+import 'package:techblog/color_manager.dart';
 import 'package:techblog/gen/assets.gen.dart';
-import 'package:techblog/models/fake_data.dart';
-import 'package:techblog/myComponent.dart';
-import 'package:techblog/string_Manager.dart';
+import 'package:techblog/my_component.dart';
+import 'package:techblog/string_manager.dart';
 import 'package:techblog/text_style_manager.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -24,9 +22,10 @@ class ProfileScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox( height: size.height/9,),
             Image.asset(
               Assets.images.pAvatar.path,
-              height: 90,
+              height: 110,
             ),
             const SizedBox(
               height: 12,
@@ -68,7 +67,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(
               height: 35,
             ),
-            techDivider(size: size),
+            TechDivider(size: size),
             InkWell(
               onTap: (() {}),
               splashColor: SolidColors.primaryColor,
@@ -80,7 +79,7 @@ class ProfileScreen extends StatelessWidget {
                     style: TextStyleManager.profileBotton,
                   ))),
             ),
-            techDivider(size: size),
+            TechDivider(size: size),
             InkWell(
               onTap: (() {}),
               splashColor: SolidColors.primaryColor,
@@ -92,7 +91,7 @@ class ProfileScreen extends StatelessWidget {
                     style: TextStyleManager.profileBotton,
                   ))),
             ),
-            techDivider(size: size),
+            TechDivider(size: size),
             InkWell(
               onTap: (() {}),
               splashColor: SolidColors.primaryColor,

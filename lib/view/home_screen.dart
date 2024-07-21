@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:techblog/color_Manager.dart';
+import 'package:techblog/color_manager.dart';
 import 'package:techblog/gen/assets.gen.dart';
 import 'package:techblog/models/fake_data.dart';
-import 'package:techblog/string_Manager.dart';
+import 'package:techblog/my_component.dart';
+import 'package:techblog/string_manager.dart';
 import 'package:techblog/text_style_manager.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
             height: 28,
           ),
           //tag list
-          tagList(bodyMargin: bodyMargin),
+          TagList(bodyMargin: bodyMargin),
           //see More
           Padding(
             padding: EdgeInsets.fromLTRB(0, 24, bodyMargin, 12),
@@ -41,6 +41,7 @@ class HomeScreen extends StatelessWidget {
                     Assets.icons.seeMore.provider(),
                     color: SolidColors.seeMore,
                   ),
+                  const SizedBox(width: 6,),
                 Text(
                   MyStrings.viewHotestBlog,
                   style: TextStyleManager.viewHotestBlog,
@@ -144,6 +145,7 @@ class HomeScreen extends StatelessWidget {
                     Assets.icons.seeMore.provider(),
                     color: SolidColors.seeMore,
                   ),
+                  const SizedBox(width: 6,),
                 Text(
                   MyStrings.viewHotestPodCasts,
                   style: TextStyleManager.viewHotestBlog,
@@ -210,8 +212,8 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class tagList extends StatelessWidget {
-  const tagList({
+class TagList extends StatelessWidget {
+  const TagList({
     super.key,
     required this.bodyMargin,
   });
@@ -229,43 +231,14 @@ class tagList extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.fromLTRB(
                 4, 8, index == 0 ? bodyMargin : 12, 8),
-            child: Container(
-              height: 60,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                    colors: GradientColors.tags,
-                    begin: Alignment.centerRight,
-                    end: Alignment.centerLeft),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(12, 4, 6, 4),
-                child: Row(
-                  children: [
-                    // ImageIcon(),
-                    const Icon(
-                      Icons.tag,
-                      color: Colors.white,
-                    ),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Center(
-                      child: Text(
-                        taglist[index].title,
-                        style: TextStyleManager.tagTextStyle,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            child: MainTag(index: index,),
           );
         },
       ),
     );
   }
 }
+
 
 class homePagePoster extends StatelessWidget {
   const homePagePoster({

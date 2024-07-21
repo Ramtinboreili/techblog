@@ -1,62 +1,103 @@
 
-import 'package:flutter/src/painting/text_style.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:techblog/color_Manager.dart';
-import 'dart:ui';
+// ignore: implementation_imports
+import 'package:flutter/material.dart';
+import 'package:techblog/color_manager.dart';
 
 class TextStyleManager {
   TextStyleManager._();
 
-  static TextStyle posterTitle = TextStyle(
+  static TextStyle posterTitle = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w800,
     color: SolidColors.posterTitle,
   );
 
-  static TextStyle posterSubTitle = TextStyle(
+  static TextStyle posterSubTitle = const TextStyle(
     fontFamily: "dana",
     fontSize: 15,
     fontWeight: FontWeight.w400,
     color: SolidColors.posterSubTitle,
   ) ;
+  static TextStyle registerIntroStyle = const TextStyle(
+    fontFamily: "dana",
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
+    color: SolidColors.blackColor,
+  ) ;
 
-  static TextStyle tagTextStyle = TextStyle(
+  static TextStyle tagTextStyle = const TextStyle(
     fontFamily: "dana",
     fontSize: 13,
     fontWeight: FontWeight.w700,
     color: SolidColors.hashTag,
   ) ;
-  static TextStyle viewHotestBlog = TextStyle(
+  static TextStyle tagTextStyle2 = const TextStyle(
+    fontFamily: "dana",
+    fontSize: 13,
+    fontWeight: FontWeight.w700,
+    color: SolidColors.blackColor,
+  ) ;
+  static TextStyle viewHotestBlog = const TextStyle(
     fontFamily: "dana",
     fontSize: 14,
     fontWeight: FontWeight.bold,
     color: SolidColors.seeMore,
   ) ;
-  static TextStyle blogListtitle= TextStyle(
+  static TextStyle blogListtitle= const TextStyle(
     fontFamily: "dana",
     fontSize: 14,
     fontWeight: FontWeight.w600,
-    color: const Color.fromARGB(255, 7, 7, 7),
+    color: Color.fromARGB(255, 7, 7, 7),
   ) ;
 
-  static TextStyle profilename= TextStyle(
+  static TextStyle profilename= const TextStyle(
     fontFamily: "dana",
     fontSize: 14,
     fontWeight: FontWeight.w700,
-    color: const Color.fromARGB(255, 7, 7, 7),
+    color: Color.fromARGB(255, 7, 7, 7),
   ) ;
 
-  static TextStyle profileBotton= TextStyle(
+  static TextStyle profileBotton= const TextStyle(
     fontFamily: "dana",
     fontSize: 15,
     fontWeight: FontWeight.w900,
-    color: const Color.fromARGB(255, 7, 7, 7),
+    color: Color.fromARGB(255, 7, 7, 7),
   ) ;
-  static TextStyle logOutButtonstyle= TextStyle(
+  static TextStyle logOutButtonstyle= const TextStyle(
     fontFamily: "dana",
     fontSize: 15,
     fontWeight: FontWeight.w900,
     color: Color.fromARGB(255, 219, 9, 9),
+  ) ;
+  static TextStyle bottomshitTextStyle= const TextStyle(
+    fontFamily: "dana",
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: Color.fromARGB(255, 70, 70, 70),
+  ) ;
+  static TextStyle hintTextStyle= const TextStyle(
+    fontFamily: "dana",
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: SolidColors.hintText,
+  ) ;
+  static TextStyle tFieldTextStyle= const TextStyle(
+    fontFamily: "dana",
+    fontSize: 14,
+    fontWeight: FontWeight.w800,
+    color: SolidColors.blackColor,
+  ) ;
+  static TextStyle elevBtextStyle1= const TextStyle(
+    fontFamily: "dana",
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: Colors.white,
+  ) ;
+  static TextStyle elevBtextStyle2= const TextStyle(
+    fontFamily: "dana",
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
   ) ;
 
 

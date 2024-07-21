@@ -1,4 +1,6 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: file_names
+
+import 'package:flutter/cupertino.dart' show Color;
 
 class SolidColors {
   static const Color posterSubTitle = Color.fromARGB(200, 255, 255, 255);

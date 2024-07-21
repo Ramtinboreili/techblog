@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:techblog/color_Manager.dart';
-import 'package:techblog/view/splashScreen.dart';
+import 'package:techblog/color_manager.dart';
+import 'package:techblog/text_style_manager.dart';
+import 'package:techblog/view/splash_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: SolidColors.primaryColor,
-    systemNavigationBarColor: SolidColors.primaryColor
-  ));
+      statusBarColor: SolidColors.primaryColor,
+      systemNavigationBarColor: SolidColors.primaryColor));
   runApp(const MyApp());
 }
 
@@ -31,9 +31,34 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            textStyle: WidgetStateProperty.resolveWith(
+              (states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return TextStyleManager.elevBtextStyle2;
+                }
+                return TextStyleManager.elevBtextStyle1;
+              },
+            ),
+            backgroundColor: WidgetStateProperty.resolveWith(
+              (states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return SolidColors.primaryColor;
+                }
+                return const Color.fromARGB(127, 68, 4, 87);
+              },
+            ),
+          ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: const BorderSide(width: 4),),
+          filled: true,
+          fillColor: const Color.fromARGB(55, 175, 174, 175)
+        )
       ),
-      home: Splashscreen(),
-      
+      home: const Splashscreen(),
+      // home: const RegisterIntro(),
     );
   }
 }
