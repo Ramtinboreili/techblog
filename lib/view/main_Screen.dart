@@ -130,7 +130,7 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
+// bottom NavBar
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({
     super.key,
@@ -177,7 +177,7 @@ class BottomNavBar extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(
+                    Navigator.push(context, CupertinoPageRoute(
                       builder: (context) {
                         return const RegisterIntro();
                       },

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:techblog/color_manager.dart';
@@ -15,7 +16,7 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3)).then((onValue) {
-      Navigator.pushReplacement(context, MaterialPageRoute(
+      Navigator.pushReplacement(context, CupertinoPageRoute(
         builder: (context) {
           return const MainScreen();
         },
@@ -32,10 +33,7 @@ class _SplashscreenState extends State<Splashscreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 64,
-                child: Assets.images.logo.image(),
-              ),
+              Image.asset(Assets.images.logo.path , scale: 3,),
               const SizedBox(
                 height: 18,
               ),

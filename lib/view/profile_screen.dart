@@ -23,13 +23,16 @@ class ProfileScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox( height: size.height/9,),
+            // profile pic
             Image.asset(
               Assets.images.pAvatar.path,
               height: 110,
             ),
+            
             const SizedBox(
               height: 12,
             ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -49,6 +52,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
+             //name and Email 
             Center(
               child: Text(
                 "رامتین یریلی ",
@@ -67,6 +71,8 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(
               height: 35,
             ),
+            
+            //Profile buttons 
             TechDivider(size: size),
             InkWell(
               onTap: (() {}),

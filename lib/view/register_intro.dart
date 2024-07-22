@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:techblog/gen/assets.gen.dart';
@@ -18,6 +20,7 @@ class RegisterIntro extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            //tchBot
             SvgPicture.asset(
               Assets.images.tcbot.path,
               height: 130,
@@ -30,6 +33,7 @@ class RegisterIntro extends StatelessWidget {
                       text: MyStrings.welcom,
                       style: TextStyleManager.registerIntroStyle)),
             ),
+            //elevated Button
             Padding(
               padding: const EdgeInsets.only(top: 32),
               child: ElevatedButton(
@@ -48,6 +52,7 @@ class RegisterIntro extends StatelessWidget {
     ));
   }
 
+    // bottom sheet Email
   Future<dynamic> _showEmailBottomSheet(BuildContext context, Size size) {  
     return showModalBottomSheet(
       isScrollControlled: true,
@@ -75,8 +80,9 @@ class RegisterIntro extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(24, 36, 24, 16),
                     child: TextField(
                       onChanged: (value) {
-                        // print(value + 'is Email = ' + isEmail.hasMatch(value).toString());
-                        print("${value}is Email =${isEmail(value)}");
+                        if (kDebugMode) {
+                          print("${value}is Email =${isEmail(value)}");
+                        }
                       },
                       style: TextStyleManager.tFieldTextStyle,
                       textAlign: TextAlign.center,
@@ -108,7 +114,7 @@ class RegisterIntro extends StatelessWidget {
     );
   }
   
-  
+    // bottom sheet Activation code
   Future<dynamic> _activateCodeBottomSheet(BuildContext context, Size size) {  
     return showModalBottomSheet(
       isScrollControlled: true,
@@ -151,7 +157,7 @@ class RegisterIntro extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 8),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MyCats(),));
+                        Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context) => const MyCats(),));
                       },
                       child: const Text(
                         "ادامه ",
