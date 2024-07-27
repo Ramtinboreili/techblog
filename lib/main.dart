@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:techblog/color_manager.dart';
-import 'package:techblog/text_style_manager.dart';
+import 'package:techblog/component/color_Manager.dart';
+import 'package:techblog/component/text_style_manager.dart';
 import 'package:techblog/view/splash_screen.dart';
 
 void main() {

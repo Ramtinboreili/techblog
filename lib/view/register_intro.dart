@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:techblog/component/string_Manager.dart';
+import 'package:techblog/component/text_style_manager.dart';
 import 'package:techblog/gen/assets.gen.dart';
-import 'package:techblog/string_manager.dart';
-import 'package:techblog/text_style_manager.dart';
 import 'package:techblog/view/my_cats.dart';
 import 'package:validators/validators.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:techblog/color_manager.dart';
+import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/gen/assets.gen.dart';
 import 'package:techblog/view/main_screen.dart';
 
@@ -37,7 +37,7 @@ class _SplashscreenState extends State<Splashscreen> {
               const SizedBox(
                 height: 18,
               ),
-              const SpinKitFadingCube(
+               const SpinKitFadingCube(
                 color: SolidColors.primaryColor,
                 size: 32.0,
               ),

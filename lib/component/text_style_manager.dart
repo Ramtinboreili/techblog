@@ -1,7 +1,7 @@
 
 // ignore: implementation_imports
 import 'package:flutter/material.dart';
-import 'package:techblog/color_manager.dart';
+import 'package:techblog/component/color_Manager.dart';
 
 class TextStyleManager {
   TextStyleManager._();
