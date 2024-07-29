@@ -1,7 +1,11 @@
+
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/models/fake_data.dart';
 import 'package:techblog/component/text_style_manager.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TechDivider extends StatelessWidget {
   const TechDivider({
@@ -63,5 +67,21 @@ class MainTag extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+
+myLaunchUrl(String url)async{
+
+
+  var uri = Uri.parse(url) ;
+  
+  if (await canLaunchUrl(uri)) {
+
+    await launchUrl(uri);
+
+
+  }else{
+    log("coud Not lunch $url");
   }
 }

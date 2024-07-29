@@ -18,7 +18,7 @@ class _SplashscreenState extends State<Splashscreen> {
     Future.delayed(const Duration(seconds: 3)).then((onValue) {
       Navigator.pushReplacement(context, CupertinoPageRoute(
         builder: (context) {
-          return const MainScreen();
+          return MainScreen();
         },
       ));
     });
