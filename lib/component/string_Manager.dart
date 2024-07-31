@@ -1,4 +1,5 @@
 // ignore: file_names
+// ignore: file_names
 class MyStrings {
   static const String techBlogGithubUrl =
       "https://github.com/sasansafari/techblog";

@@ -1,4 +1,7 @@
-class ArticleModel {
+
+import 'package:techblog/component/api_constant.dart';
+
+class ArticleModel{
   String? id;
   String? title;
   String? image;
@@ -9,29 +12,30 @@ class ArticleModel {
   String? status;
   String? createdAt;
 
+
   ArticleModel({
+
     required this.id,
-    required this.author,
+    required this.title,
+    required this.image,
     required this.catId,
     required this.catName,
-    required this.createdAt,
-    required this.image,
-    required this.status,
-    required this.title,
+    required this.author,
     required this.view,
-  });
+    required this.status,
+    required this.createdAt,
+});
 
-  ArticleModel.fromjason(Map<String, dynamic> element) {
-     id = element["id"];
-     title= element["title"];
-     image= element["image"];
-     catId= element["cat_id"];
-     catName= element["cat_name"];
-     author= element["author"];
-     view= element["view"];
-     status= element["status"];
-     createdAt= element["created_at"];
+  ArticleModel.fromJson(Map<String,dynamic> element){
+    id=element["id"]??'';
+    title=element["title"]??'';
+    image=ApiConstant.hosttDlUrl+element["image"];
+    catId=element["cat_id"]??'';
+    catName=element["cat_name"]??'';
+    author=element["author"];
+    view=element["view"]??'';
+    status=element["status"]??'';
+    createdAt=element["created_at"]??'';
   }
+
 }
-
-

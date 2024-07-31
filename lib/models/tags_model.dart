@@ -8,7 +8,7 @@ class TagsModel {
     required this.title,
   });
 
-  TagsModel.fromjason(Map<String,dynamic> element){
+  TagsModel.fromJson(Map<String,dynamic> element){
    id=element["id"];
    title=element["title"];
 

@@ -1,9 +1,11 @@
 
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:techblog/component/color_Manager.dart';
-import 'package:techblog/models/fake_data.dart';
+import 'package:techblog/controller/home_screen_controller.dart';
 import 'package:techblog/component/text_style_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -32,6 +34,7 @@ class MainTag extends StatelessWidget {
     required this.index ,
     super.key,
   });
+  // ignore: prefer_typing_uninitialized_variables
   var index ;
 
   @override
@@ -49,7 +52,6 @@ class MainTag extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(12, 4, 6, 4),
         child: Row(
           children: [
-            // ImageIcon(),
             const Icon(
               Icons.tag,
               color: Colors.white,
@@ -59,7 +61,7 @@ class MainTag extends StatelessWidget {
             ),
             Center(
               child: Text(
-                taglist[index].title,
+                Get.find<HomeScreenController>().taglist[index].title!,
                 style: TextStyleManager.tagTextStyle,
               ),
             ),
@@ -85,3 +87,32 @@ myLaunchUrl(String url)async{
     log("coud Not lunch $url");
   }
 }
+
+
+  PreferredSize appBar(String title) {
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(90),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          actions: [Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Center(child: Text(title,style: TextStyleManager.appBarTextStyle,)),
+          )],
+          leading: Container(
+            height: 40,
+            width: 40,
+            decoration: BoxDecoration(
+                color: SolidColors.primaryColor.withAlpha(100),
+                shape: BoxShape.circle),
+                child: IconButton(onPressed: () {
+                  
+                }, icon: const Icon(CupertinoIcons.arrow_right , color: Colors.white,size: 32
+                ,)),
+          ),
+        ),
+      ),
+    );
+  }

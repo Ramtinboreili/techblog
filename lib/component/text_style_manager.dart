@@ -99,6 +99,12 @@ class TextStyleManager {
     fontWeight: FontWeight.bold,
     color: Colors.white,
   ) ;
+  static TextStyle appBarTextStyle= const TextStyle(
+    fontFamily: "dana",
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: SolidColors.primaryColor,
+  ) ;
 
 
 }

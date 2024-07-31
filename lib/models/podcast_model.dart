@@ -1,3 +1,5 @@
+import 'package:techblog/component/api_constant.dart';
+
 class PodcastModel {
   String? id;
   String? title;
@@ -19,10 +21,10 @@ class PodcastModel {
     required this.view,
   });
 
-  PodcastModel.fromjason(Map<String, dynamic> element) {
+  PodcastModel.fromJson(Map<String, dynamic> element) {
      id = element["id"];
      title= element["title"];
-     poster= element["poster"];
+     poster=ApiConstant.hosttDlUrl+element["poster"];
      catName= element["cat_name"];
      author= element["author"];
      view= element["view"];
