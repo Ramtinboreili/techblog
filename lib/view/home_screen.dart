@@ -247,11 +247,9 @@ class HomeScreen extends StatelessWidget {
                           color: SolidColors.primaryColor,
                           size: 22,
                         ),
-                        errorWidget: (context, url, error) => const Icon(
-                          Icons.image_not_supported_outlined,
-                          size: 50,
-                          color: Colors.grey,
-                        ),
+                        errorWidget: (context, url, error) {
+                          return Image.asset(Assets.images.placeholder.path,fit: BoxFit.cover,);
+                        },
                       )),
                   const SizedBox(
                     height: 6,

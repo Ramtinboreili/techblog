@@ -48,6 +48,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/placeholder.jpg
+  AssetGenImage get placeholder =>
+      const AssetGenImage('assets/images/placeholder.jpg');
+
   /// File path: assets/images/programming.jpg
   AssetGenImage get programming =>
       const AssetGenImage('assets/images/programming.jpg');
@@ -56,7 +60,7 @@ class $AssetsImagesGen {
   SvgGenImage get tcbot => const SvgGenImage('assets/images/tcbot.svg');
 
   /// List of all assets
-  List<dynamic> get values => [pAvatar, logo, programming, tcbot];
+  List<dynamic> get values => [pAvatar, logo, placeholder, programming, tcbot];
 }
 
 class Assets {

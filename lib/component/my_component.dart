@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/controller/home_screen_controller.dart';
@@ -91,7 +92,7 @@ myLaunchUrl(String url)async{
 
   PreferredSize appBar(String title) {
     return PreferredSize(
-      preferredSize: const Size.fromHeight(90),
+      preferredSize: const Size.fromHeight(80),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: AppBar(
@@ -107,12 +108,28 @@ myLaunchUrl(String url)async{
             decoration: BoxDecoration(
                 color: SolidColors.primaryColor.withAlpha(100),
                 shape: BoxShape.circle),
-                child: IconButton(onPressed: () {
+                child: GestureDetector(
                   
-                }, icon: const Icon(CupertinoIcons.arrow_right , color: Colors.white,size: 32
-                ,)),
+                  child: const Icon(CupertinoIcons.arrow_right , color: Colors.white,size: 32
+                  ,),
+                ),
           ),
         ),
       ),
     );
   }
+
+
+  class Loading extends StatelessWidget {
+  const Loading({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const SpinKitFadingCube(
+      color: SolidColors.primaryColor,
+      size: 32.0,
+    );
+  }
+}
