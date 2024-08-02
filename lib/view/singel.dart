@@ -10,18 +10,25 @@ import 'package:techblog/component/my_component.dart';
 import 'package:techblog/component/string_Manager.dart';
 import 'package:techblog/component/text_style_manager.dart';
 import 'package:techblog/controller/home_screen_controller.dart';
+import 'package:techblog/controller/single_articel_controller.dart';
 import 'package:techblog/gen/assets.gen.dart';
 
 class Singel extends StatelessWidget {
   Singel({super.key});
 
+  HomeScreenController homeScreenController = Get.put(HomeScreenController());
+  SingleArticelController singleArticelController = Get.put(SingleArticelController());
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     double bodyMargin = size.width / 10;
+    // var id = Get.arguments[0];
+
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             //Article Poster
@@ -30,16 +37,9 @@ class Singel extends StatelessWidget {
               children: [
                 CachedNetworkImage(
                   imageBuilder: (context, imageProvider) {
-                    return Container(
-                      height: 110,
-                      width: 110,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          image: DecorationImage(
-                              image: imageProvider, fit: BoxFit.fitHeight)),
-                    );
+                    return Image(image: imageProvider);
                   },
-                  imageUrl: "imageurl",
+                  imageUrl: '',
                   placeholder: (context, url) {
                     return const Loading();
                   },
@@ -95,7 +95,7 @@ class Singel extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "لودم دمد دمدمدم دمدمد یتخست سمیمیمی ییمی ",
+                "singleArticelController.articleInfoModel.value.title!",
                 maxLines: 2,
                 style: TextStyleManager.singleArticlelistText,
               ),

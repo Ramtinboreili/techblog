@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/component/text_style_manager.dart';
@@ -21,15 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       locale: const Locale('fa'),
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('fa'), // persian
-      ],
-      title: 'Flutter Demo',
+      title: 'TechBlog',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: SolidColors.primaryColor),
         useMaterial3: true,

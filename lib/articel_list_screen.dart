@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:techblog/component/my_component.dart';
 import 'package:techblog/component/text_style_manager.dart';
 import 'package:techblog/controller/home_screen_controller.dart';
+import 'package:techblog/controller/single_articel_controller.dart';
 import 'package:techblog/view/singel.dart';
 
 // ignore: must_be_immutable
@@ -11,6 +12,7 @@ class ArticleListScreen extends StatelessWidget {
   ArticleListScreen({super.key});
 
   HomeScreenController homeScreenController = Get.put(HomeScreenController());
+  SingleArticelController singleArticelController = Get.put(SingleArticelController());
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,10 @@ class ArticleListScreen extends StatelessWidget {
               itemCount: homeScreenController.topVisitedList.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () => Get.to( Singel()),
+                  onTap: () {
+                    singleArticelController.id.value= int.parse(homeScreenController.topVisitedList[index].id.toString());
+                    Get.to( Singel());
+                  },
                   child: Padding(
                     padding: const EdgeInsets.only(top: 24),
                     child: Row(
