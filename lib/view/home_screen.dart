@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:techblog/articel_list_screen.dart';
+import 'package:techblog/view/articel_list_screen.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/component/string_Manager.dart';
 import 'package:techblog/controller/home_screen_controller.dart';
