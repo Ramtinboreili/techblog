@@ -4,6 +4,7 @@ import 'package:techblog/models/article_info_model.dart';
 import 'package:techblog/models/article_model.dart';
 import 'package:techblog/models/tags_model.dart';
 import 'package:techblog/services/dio_service.dart';
+import 'package:techblog/view/singel.dart';
 
 class SingleArticelController extends GetxController{
 
@@ -13,12 +14,15 @@ class SingleArticelController extends GetxController{
   RxList<TagsModel> tagList = RxList();
   RxList<ArticleModel> relatedList = RxList();
 
-  getArticleInfo() async {
+  getArticleInfo(var id ) async {
+    articleInfoModel= ArticleInfoModel().obs;
     loading.value=true;
     //https://techblog.sasansafari.com/Techblog/api/article/get.php?command=info&id=1&user_id=1
     //TODO: User Ro dorost kon Null ferestadi
     var userId = '';
+
     var response = await DioService().getmethod("${ApiConstant.baseUrl}article/get.php?command=info&id=$id&user_id=$userId");
+    
     if (response.statusCode == 200) {
       
       articleInfoModel.value = ArticleInfoModel.fromJson(response.data);
@@ -36,6 +40,7 @@ class SingleArticelController extends GetxController{
       relatedList.add(ArticleModel.fromJson(element));
     });
 
+    Get.to(Singel());
   }
 
 

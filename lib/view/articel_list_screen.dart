@@ -5,14 +5,14 @@ import 'package:techblog/component/my_component.dart';
 import 'package:techblog/component/text_style_manager.dart';
 import 'package:techblog/controller/home_screen_controller.dart';
 import 'package:techblog/controller/single_articel_controller.dart';
-import 'package:techblog/view/singel.dart';
 
 // ignore: must_be_immutable
 class ArticleListScreen extends StatelessWidget {
   ArticleListScreen({super.key});
 
   HomeScreenController homeScreenController = Get.put(HomeScreenController());
-  SingleArticelController singleArticelController = Get.put(SingleArticelController());
+  SingleArticelController singleArticelController =
+      Get.put(SingleArticelController());
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +29,8 @@ class ArticleListScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
-                    singleArticelController.id.value= int.parse(homeScreenController.topVisitedList[index].id.toString());
-                    Get.to( Singel());
+                    singleArticelController.getArticleInfo(
+                        homeScreenController.topVisitedList[index].id);
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(top: 24),
@@ -55,7 +55,8 @@ class ArticleListScreen extends StatelessWidget {
                             return const Loading();
                           },
                           errorWidget: (context, url, error) {
-                            return const Icon(Icons.image_not_supported_outlined,
+                            return const Icon(
+                                Icons.image_not_supported_outlined,
                                 color: Colors.grey);
                           },
                         ),
@@ -68,14 +69,18 @@ class ArticleListScreen extends StatelessWidget {
                             children: [
                               SizedBox(
                                   child: Text(
-                                homeScreenController.topVisitedList[index].title!,
+                                homeScreenController
+                                    .topVisitedList[index].title!,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 2,
                                 style: TextStyleManager.articlelistText,
                               )),
-                              const SizedBox(height: 16,),
+                              const SizedBox(
+                                height: 16,
+                              ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                       homeScreenController

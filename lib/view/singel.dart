@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:techblog/view/articel_list_screen.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/component/my_component.dart';
@@ -15,237 +14,238 @@ import 'package:techblog/controller/list_articel_controller.dart';
 import 'package:techblog/controller/single_articel_controller.dart';
 import 'package:techblog/gen/assets.gen.dart';
 
-// ignore: must_be_immutable
-class Singel extends StatefulWidget {
-  Singel({super.key});
-
-  @override
-  State<Singel> createState() => _SingelState();
-}
-
-class _SingelState extends State<Singel> {
+class Singel extends StatelessWidget {
   HomeScreenController homeScreenController = Get.put(HomeScreenController());
-  ListArticleController listArticleController = Get.put(ListArticleController());
+  ListArticleController listArticleController =
+      Get.put(ListArticleController());
 
   SingleArticelController singleArticelController =
       Get.put(SingleArticelController());
-
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    singleArticelController.getArticleInfo();
-  }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     double bodyMargin = size.width / 10;
-    // var id = Get.arguments[0];
 
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Obx(
-          () => Column(
-            children: [
-              //Article Poster
-
-              Stack(
-                children: [
-                  CachedNetworkImage(
-                    imageBuilder: (context, imageProvider) {
-                      return Image(image: imageProvider);
-                    },
-                    imageUrl:
-                        singleArticelController.articleInfoModel.value.image!,
-                    placeholder: (context, url) {
-                      return const Loading();
-                    },
-                    errorWidget: (context, url, error) {
-                      return Image.asset(Assets.images.placeholder.path);
-                    },
-                  ),
-                  Positioned(
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      child: Container(
-                        height: 60,
-                        decoration: const BoxDecoration(
-                            gradient: LinearGradient(
-                                colors: GradientColors.singleAppbarGradiant,
-                                end: Alignment.bottomCenter,
-                                begin: Alignment.topCenter)),
-                        child: const Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            SizedBox(
-                              width: 12,
-                            ),
-                            Icon(
-                              CupertinoIcons.back,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                            Expanded(child: SizedBox()),
-                            Icon(
-                              CupertinoIcons.share,
-                              color: Colors.white,
-                              size: 28,
-                            ),
-                            SizedBox(
-                              width: 16,
-                            ),
-                            Icon(
-                              CupertinoIcons.bookmark,
-                              color: Colors.white,
-                              size: 28,
-                            ),
-                            SizedBox(
-                              width: 12,
-                            )
-                          ],
-                        ),
-                      ))
-                ],
-              ),
-              //article title
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  singleArticelController.articleInfoModel.value.title!,
-                  maxLines: 2,
-                  style: TextStyleManager.singleArticlelistText,
-                ),
-              ),
-              //autor profile
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
+          () => singleArticelController.articleInfoModel.value.image == null
+              ? SizedBox(height: Get.height, child: const Loading())
+              : Column(
                   children: [
-                    Image(
-                      image: Image.asset(
-                        Assets.images.pAvatar.path,
-                      ).image,
-                      height: 50,
+                    //Article Poster
+                    Stack(
+                      children: [
+                        CachedNetworkImage(
+                          imageBuilder: (context, imageProvider) {
+                            return Image(image: imageProvider);
+                          },
+                          imageUrl: singleArticelController
+                              .articleInfoModel.value.image!,
+                          placeholder: (context, url) {
+                            return const Loading();
+                          },
+                          errorWidget: (context, url, error) {
+                            return Image.asset(Assets.images.placeholder.path);
+                          },
+                        ),
+                        //Single AppBar
+                        Positioned(
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            child: Container(
+                              height: 60,
+                              decoration: const BoxDecoration(
+                                  gradient: LinearGradient(
+                                      colors:
+                                          GradientColors.singleAppbarGradiant,
+                                      end: Alignment.bottomCenter,
+                                      begin: Alignment.topCenter)),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  const SizedBox(
+                                    width: 12,
+                                  ),
+                                  IconButton(
+                                      onPressed: () => Navigator.pop(context),
+                                      icon: const Icon(
+                                        CupertinoIcons.back,
+                                        color: Colors.white,
+                                        size: 30,
+                                      )),
+                                  const Expanded(child: SizedBox()),
+                                  const Icon(
+                                    CupertinoIcons.share,
+                                    color: Colors.white,
+                                    size: 28,
+                                  ),
+                                  const SizedBox(
+                                    width: 16,
+                                  ),
+                                  const Icon(
+                                    CupertinoIcons.bookmark,
+                                    color: Colors.white,
+                                    size: 28,
+                                  ),
+                                  const SizedBox(
+                                    width: 12,
+                                  )
+                                ],
+                              ),
+                            ))
+                      ],
                     ),
+                    //article title
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        singleArticelController.articleInfoModel.value.title!,
+                        maxLines: 2,
+                        style: TextStyleManager.singleArticlelistText,
+                      ),
+                    ),
+                    //autor profile
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Image(
+                            image: Image.asset(
+                              Assets.images.pAvatar.path,
+                            ).image,
+                            height: 50,
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          Text(
+                            singleArticelController
+                                .articleInfoModel.value.author!,
+                            style: TextStyleManager.profilename,
+                          ),
+                          const SizedBox(
+                            width: 18,
+                          ),
+                          Text(
+                            singleArticelController
+                                .articleInfoModel.value.createdAt!,
+                            style: TextStyleManager.bottomshitTextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
+                    //Article
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: HtmlWidget(
+                        singleArticelController.articleInfoModel.value.content!,
+                        textStyle: TextStyleManager.singleArticlelistText,
+                        onLoadingBuilder: (context, element, loadingProgress) =>
+                            const Loading(),
+                        enableCaching: true,
+                      ),
+                    ),
+                    //Tags
                     const SizedBox(
-                      width: 16,
+                      height: 20,
                     ),
-                    Text(
-                      singleArticelController.articleInfoModel.value.author!,
-                      style: TextStyleManager.profilename,
+                    SizedBox(
+                      height: 45,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: singleArticelController.tagList.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () async {
+                              var tagid =
+                                  singleArticelController.tagList[index].id!;
+                              await Get.find<ListArticleController>()
+                                  .getArticleListWithTagId(tagid);
+                              Get.to(ArticleListScreen());
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 226, 226, 226),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(12, 4, 6, 4),
+                                  child: Row(
+                                    children: [
+                                      const SizedBox(
+                                        width: 6,
+                                      ),
+                                      Center(
+                                        child: Text(
+                                          singleArticelController
+                                              .tagList[index].title!,
+                                          style: TextStyleManager.tagTextStyle2,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
                     ),
+                    //SeeMore
                     const SizedBox(
-                      width: 18,
+                      height: 45,
                     ),
-                    Text(
-                      singleArticelController.articleInfoModel.value.createdAt!,
-                      style: TextStyleManager.bottomshitTextStyle,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          width: 14,
+                        ),
+                        Text(
+                          MyStrings.relatedArticle,
+                          style: TextStyleManager.viewHotestBlog,
+                          textDirection: TextDirection.rtl,
+                        ),
+                      ],
+                    ),
+                    //SeeMore List
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    related(
+                      size: size,
+                      bodyMargin: bodyMargin,
                     ),
                   ],
                 ),
-              ),
-              //Article
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: HtmlWidget(
-                  singleArticelController.articleInfoModel.value.content!,
-                  textStyle: TextStyleManager.singleArticlelistText,
-                  onLoadingBuilder: (context, element, loadingProgress) =>
-                      const Loading(),
-                  enableCaching: true,
-                ),
-              ),
-              //Tags
-              const SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 45,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: singleArticelController.tagList.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () async{
-                        var tagid = singleArticelController.tagList[index].id!;
-                        await Get.find<ListArticleController>().getArticleListWithTagId(tagid);
-                        Get.to(ArticleListScreen());
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 226, 226, 226),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(12, 4, 6, 4),
-                            child: Row(
-                              children: [
-                                const SizedBox(
-                                  width: 6,
-                                ),
-                                Center(
-                                  child: Text(
-                                    singleArticelController.tagList[index].title!,
-                                    style: TextStyleManager.tagTextStyle2,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-              //SeeMore
-              const SizedBox(
-                height: 45,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    width: 14,
-                  ),
-                  Text(
-                    MyStrings.relatedArticle,
-                    style: TextStyleManager.viewHotestBlog,
-                    textDirection: TextDirection.rtl,
-                  ),
-                ],
-              ),
-              //SeeMore List
-              const SizedBox(
-                height: 16,
-              ),
-              topVisited(
-                size: size,
-                bodyMargin: bodyMargin,
-              ),
-            ],
-          ),
         ),
       ),
     ));
   }
 
-  Widget topVisited({required Size size, required double bodyMargin}) {
-    return Obx(
-      () => SizedBox(
-        height: size.height / 4,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: Get.find<HomeScreenController>().topVisitedList.length,
-          itemBuilder: (context, index) {
-            return Padding(
+  Widget related({required Size size, required double bodyMargin}) {
+    var relatedLen = Get.find<SingleArticelController>().relatedList.length;
+    return SizedBox(
+      height: size.height / 4,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: relatedLen,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              singleArticelController.getArticleInfo(
+                  singleArticelController.relatedList[index].id);
+            },
+            child: Padding(
               padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 15),
               child: Column(
                 children: [
@@ -255,8 +255,8 @@ class _SingelState extends State<Singel> {
                     child: Stack(
                       children: [
                         CachedNetworkImage(
-                          imageUrl: Get.find<HomeScreenController>()
-                              .topVisitedList[index]
+                          imageUrl: Get.find<SingleArticelController>()
+                              .relatedList[index]
                               .image!,
                           imageBuilder: (context, imageProvider) {
                             return Container(
@@ -293,9 +293,10 @@ class _SingelState extends State<Singel> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                    Get.find<HomeScreenController>()
-                                        .topVisitedList[index]
-                                        .author!,
+                                    Get.find<SingleArticelController>()
+                                            .relatedList[index]
+                                            .author ??
+                                        "تک بلاگ",
                                     style: TextStyleManager.posterSubTitle),
                                 Row(
                                   children: [
@@ -327,8 +328,8 @@ class _SingelState extends State<Singel> {
                   SizedBox(
                       width: size.width / 2.4,
                       child: Text(
-                        Get.find<HomeScreenController>()
-                            .topVisitedList[index]
+                        Get.find<SingleArticelController>()
+                            .relatedList[index]
                             .title!,
                         style: TextStyleManager.blogListtitle,
                         maxLines: 2,
@@ -336,9 +337,9 @@ class _SingelState extends State<Singel> {
                       ))
                 ],
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

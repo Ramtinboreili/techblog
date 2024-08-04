@@ -2,14 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:techblog/component/string_Manager.dart';
 import 'package:techblog/component/text_style_manager.dart';
+import 'package:techblog/controller/register_controller.dart';
 import 'package:techblog/gen/assets.gen.dart';
 import 'package:techblog/view/my_cats.dart';
 import 'package:validators/validators.dart';
 
 class RegisterIntro extends StatelessWidget {
-  const RegisterIntro({super.key});
+   RegisterIntro({super.key});
+
+  RegisterController registerController = Get.put(RegisterController());
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +56,8 @@ class RegisterIntro extends StatelessWidget {
     ));
   }
 
-    // bottom sheet Email
-  Future<dynamic> _showEmailBottomSheet(BuildContext context, Size size) {  
+  // bottom sheet Email
+  Future<dynamic> _showEmailBottomSheet(BuildContext context, Size size) {
     return showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -79,6 +83,7 @@ class RegisterIntro extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(24, 36, 24, 16),
                     child: TextField(
+                      controller: registerController.emailTexteditingcontroller,
                       onChanged: (value) {
                         if (kDebugMode) {
                           print("${value}is Email =${isEmail(value)}");
@@ -96,6 +101,7 @@ class RegisterIntro extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 8),
                     child: ElevatedButton(
                       onPressed: () {
+                        registerController.register();
                         Navigator.pop(context);
                         _activateCodeBottomSheet(context, size);
                       },
@@ -113,9 +119,9 @@ class RegisterIntro extends StatelessWidget {
       },
     );
   }
-  
-    // bottom sheet Activation code
-  Future<dynamic> _activateCodeBottomSheet(BuildContext context, Size size) {  
+
+  // bottom sheet Activation code
+  Future<dynamic> _activateCodeBottomSheet(BuildContext context, Size size) {
     return showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -141,23 +147,25 @@ class RegisterIntro extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(24, 36, 24, 16),
                     child: TextField(
-                      onChanged: (value) {
-
-                      },
+                      controller: registerController.activationTexteditingcontroller,
+                      onChanged: (value) {},
                       style: TextStyleManager.tFieldTextStyle,
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                        hintText: "******",
-                        hintStyle: TextStyleManager.hintTextStyle,
-                        alignLabelWithHint: true
-                      ),
+                          hintText: "******",
+                          hintStyle: TextStyleManager.hintTextStyle,
+                          alignLabelWithHint: true),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 8),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context) => const MyCats(),));
+                        Navigator.pushReplacement(
+                            context,
+                            CupertinoPageRoute(
+                              builder: (context) => const MyCats(),
+                            ));
                       },
                       child: const Text(
                         "ادامه ",

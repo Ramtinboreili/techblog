@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:techblog/component/color_Manager.dart';
@@ -177,23 +178,20 @@ class BottomNavBar extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: (() => changeScreen(0)),
-                  icon: const Icon(CupertinoIcons.house_fill),
+                  icon: const Icon(CupertinoIcons.house_fill, size: 32,),
                   color: Colors.white,
                 ),
                 IconButton(
                   onPressed: () {
-                    Navigator.push(context, CupertinoPageRoute(
-                      builder: (context) {
-                        return const RegisterIntro();
-                      },
-                    ));
+                    //TODO: Log in Opration
+                    Get.to(RegisterIntro());
                   },
-                  icon: const Icon(CupertinoIcons.pencil_outline),
+                  icon: const Icon(CupertinoIcons.pencil_outline,size: 32,),
                   color: Colors.white,
                 ),
                 IconButton(
                   onPressed: (() => changeScreen(1)),
-                  icon: const Icon(CupertinoIcons.person_fill),
+                  icon: const Icon(CupertinoIcons.person_fill,size: 32),
                   color: Colors.white,
                 ),
               ],

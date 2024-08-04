@@ -7,8 +7,9 @@ class TextStyleManager {
   TextStyleManager._();
 
   static TextStyle posterTitle = const TextStyle(
+    fontFamily: "dana",
     fontSize: 20,
-    fontWeight: FontWeight.w800,
+    fontWeight: FontWeight.bold,
     color: SolidColors.posterTitle,
   );
 
