@@ -47,6 +47,7 @@ class RegisterController extends GetxController {
     print(response.data);
 
     var box = GetStorage();
+    
     if (response.data['response'] == 'verified') {
       var box = GetStorage();
       box.write(token, response.data['token']);

@@ -14,6 +14,7 @@ import 'package:techblog/controller/list_articel_controller.dart';
 import 'package:techblog/controller/single_articel_controller.dart';
 import 'package:techblog/gen/assets.gen.dart';
 
+// ignore: must_be_immutable
 class single extends StatelessWidget {
   HomeScreenController homeScreenController = Get.put(HomeScreenController());
   ListArticleController listArticleController =
@@ -21,6 +22,8 @@ class single extends StatelessWidget {
 
   SingleArticelController singleArticelController =
       Get.put(SingleArticelController());
+
+  single({super.key});
 
   @override
   Widget build(BuildContext context) {
