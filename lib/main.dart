@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/component/text_style_manager.dart';
 import 'package:techblog/view/splash_screen.dart';
 
-void main() {
+void main()async {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: SolidColors.primaryColor,
       systemNavigationBarColor: SolidColors.primaryColor));
+  await GetStorage.init();
   runApp(const MyApp());
 }
 

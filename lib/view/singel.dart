@@ -14,7 +14,7 @@ import 'package:techblog/controller/list_articel_controller.dart';
 import 'package:techblog/controller/single_articel_controller.dart';
 import 'package:techblog/gen/assets.gen.dart';
 
-class Singel extends StatelessWidget {
+class single extends StatelessWidget {
   HomeScreenController homeScreenController = Get.put(HomeScreenController());
   ListArticleController listArticleController =
       Get.put(ListArticleController());

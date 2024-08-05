@@ -10,8 +10,9 @@ import 'package:techblog/gen/assets.gen.dart';
 import 'package:techblog/view/my_cats.dart';
 import 'package:validators/validators.dart';
 
+// ignore: must_be_immutable
 class RegisterIntro extends StatelessWidget {
-   RegisterIntro({super.key});
+  RegisterIntro({super.key});
 
   RegisterController registerController = Get.put(RegisterController());
 
@@ -147,7 +148,8 @@ class RegisterIntro extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(24, 36, 24, 16),
                     child: TextField(
-                      controller: registerController.activationTexteditingcontroller,
+                      controller:
+                          registerController.activationTexteditingcontroller,
                       onChanged: (value) {},
                       style: TextStyleManager.tFieldTextStyle,
                       textAlign: TextAlign.center,
@@ -161,11 +163,12 @@ class RegisterIntro extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 8),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            CupertinoPageRoute(
-                              builder: (context) => const MyCats(),
-                            ));
+                        registerController.verify();
+                        // Navigator.pushReplacement(
+                        //     context,
+                        //     CupertinoPageRoute(
+                        //       builder: (context) => const MyCats(),
+                        //     ));
                       },
                       child: const Text(
                         "ادامه ",

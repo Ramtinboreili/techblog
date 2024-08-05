@@ -40,7 +40,7 @@ class SingleArticelController extends GetxController{
       relatedList.add(ArticleModel.fromJson(element));
     });
 
-    Get.to(Singel());
+    Get.to(single());
   }
 
 
