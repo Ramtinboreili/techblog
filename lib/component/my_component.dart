@@ -58,12 +58,13 @@ class MainTag extends StatelessWidget {
               color: Colors.white,
             ),
             const SizedBox(
-              width: 6,
+              width: 4,
             ),
             Center(
               child: Text(
                 Get.find<HomeScreenController>().taglist[index].title!,
                 style: TextStyleManager.tagTextStyle,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ],
@@ -89,7 +90,7 @@ myLaunchUrl(String url)async{
   }
 }
 
-
+//appBar
   PreferredSize appBar(String title) {
     return PreferredSize(
       preferredSize: const Size.fromHeight(80),
@@ -108,11 +109,8 @@ myLaunchUrl(String url)async{
             decoration: BoxDecoration(
                 color: SolidColors.primaryColor.withAlpha(100),
                 shape: BoxShape.circle),
-                child: GestureDetector(
-                  
-                  child: const Icon(CupertinoIcons.arrow_right , color: Colors.white,size: 32
-                  ,),
-                ),
+                child: const Icon(CupertinoIcons.arrow_right , color: Colors.white,size: 32
+                ,),
           ),
         ),
       ),
@@ -122,8 +120,8 @@ myLaunchUrl(String url)async{
 
   class Loading extends StatelessWidget {
   const Loading({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

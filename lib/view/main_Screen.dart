@@ -1,19 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/component/my_component.dart';
 import 'package:techblog/component/string_Manager.dart';
 import 'package:techblog/component/text_style_manager.dart';
+import 'package:techblog/controller/register_controller.dart';
 import 'package:techblog/gen/assets.gen.dart';
 import 'package:techblog/view/home_screen.dart';
 import 'package:techblog/view/profile_screen.dart';
-import 'package:techblog/view/register_intro.dart';
 
-
-final GlobalKey <ScaffoldState> _key = GlobalKey();
+final GlobalKey<ScaffoldState> _key = GlobalKey();
 
 // ignore: must_be_immutable
 class MainScreen extends StatelessWidget {
@@ -32,7 +30,7 @@ class MainScreen extends StatelessWidget {
         drawer: Drawer(
           backgroundColor: SolidColors.scaffoldBg,
           child: Padding(
-            padding:  EdgeInsets.only(right: bodyMargin , left: bodyMargin),
+            padding: EdgeInsets.only(right: bodyMargin, left: bodyMargin),
             child: ListView(
               children: [
                 DrawerHeader(
@@ -61,7 +59,7 @@ class MainScreen extends StatelessWidget {
                   color: SolidColors.dividerColor,
                 ),
                 ListTile(
-                  onTap: ()async {
+                  onTap: () async {
                     await Share.share(MyStrings.shareText);
                   },
                   title: Text(
@@ -93,15 +91,15 @@ class MainScreen extends StatelessWidget {
           elevation: 5,
           backgroundColor: SolidColors.scaffoldBg,
           title: Padding(
-            padding: const EdgeInsets.only(right: 12 , left: 12),
+            padding: const EdgeInsets.only(right: 12, left: 12),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  onTap: () {
-                    _key.currentState!.openDrawer();
-                  },
-                  child: const Icon(Icons.menu)),
+                    onTap: () {
+                      _key.currentState!.openDrawer();
+                    },
+                    child: const Icon(Icons.menu)),
                 SizedBox(
                   height: size.height / 13.6,
                   child: Assets.images.logo.image(),
@@ -114,21 +112,21 @@ class MainScreen extends StatelessWidget {
         body: Stack(children: [
           //Home Screen
           Positioned.fill(
-              child: Obx(() => IndexedStack(
-            index: selectedPageIndex.value,
-            children: [
-              HomeScreen(size: size, bodyMargin: bodyMargin),
-              ProfileScreen(size: size, bodyMargin: bodyMargin),
-            ],
-          ),)),
+              child: Obx(
+            () => IndexedStack(
+              index: selectedPageIndex.value,
+              children: [
+                HomeScreen(size: size, bodyMargin: bodyMargin),
+                ProfileScreen(size: size, bodyMargin: bodyMargin),
+              ],
+            ),
+          )),
           //Bottom Nav Bar
           BottomNavBar(
             size: size,
             bodyMargin: bodyMargin,
             changeScreen: (int value) {
-              
-                selectedPageIndex.value = value;
-              
+              selectedPageIndex.value = value;
             },
           ),
         ]),
@@ -136,9 +134,11 @@ class MainScreen extends StatelessWidget {
     );
   }
 }
+
 // bottom NavBar
+// ignore: must_be_immutable
 class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({
+   BottomNavBar({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -148,6 +148,7 @@ class BottomNavBar extends StatelessWidget {
   final Size size;
   final double bodyMargin;
   final Function(int) changeScreen;
+  RegisterController registerController = Get.put(RegisterController());
 
   @override
   Widget build(BuildContext context) {
@@ -178,20 +179,25 @@ class BottomNavBar extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: (() => changeScreen(0)),
-                  icon: const Icon(CupertinoIcons.house_fill, size: 32,),
+                  icon: const Icon(
+                    CupertinoIcons.house_fill,
+                    size: 32,
+                  ),
                   color: Colors.white,
                 ),
                 IconButton(
                   onPressed: () {
-                    //TODO: Log in Opration
-                    Get.to(RegisterIntro());
+                    registerController.toggleLogin();
                   },
-                  icon: const Icon(CupertinoIcons.pencil_outline,size: 32,),
+                  icon: const Icon(
+                    CupertinoIcons.pencil_outline,
+                    size: 32,
+                  ),
                   color: Colors.white,
                 ),
                 IconButton(
                   onPressed: (() => changeScreen(1)),
-                  icon: const Icon(CupertinoIcons.person_fill,size: 32),
+                  icon: const Icon(CupertinoIcons.person_fill, size: 32),
                   color: Colors.white,
                 ),
               ],

@@ -1,12 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/component/text_style_manager.dart';
+import 'package:techblog/my_http_overrides.dart';
 import 'package:techblog/view/splash_screen.dart';
 
 void main()async {
+  HttpOverrides.global = MyHttpOverrides();
+
+
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: SolidColors.primaryColor,
       systemNavigationBarColor: SolidColors.primaryColor));
