@@ -138,7 +138,7 @@ class MainScreen extends StatelessWidget {
 // bottom NavBar
 // ignore: must_be_immutable
 class BottomNavBar extends StatelessWidget {
-   BottomNavBar({
+  BottomNavBar({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -148,7 +148,6 @@ class BottomNavBar extends StatelessWidget {
   final Size size;
   final double bodyMargin;
   final Function(int) changeScreen;
-  RegisterController registerController = Get.put(RegisterController());
 
   @override
   Widget build(BuildContext context) {
@@ -187,7 +186,7 @@ class BottomNavBar extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    registerController.toggleLogin();
+                    Get.find<RegisterController>().toggleLogin();
                   },
                   icon: const Icon(
                     CupertinoIcons.pencil_outline,

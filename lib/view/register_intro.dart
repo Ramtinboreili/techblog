@@ -12,7 +12,7 @@ import 'package:validators/validators.dart';
 class RegisterIntro extends StatelessWidget {
   RegisterIntro({super.key});
 
-  RegisterController registerController = Get.put(RegisterController());
+  var registerController = Get.find<RegisterController>();
 
   @override
   Widget build(BuildContext context) {
@@ -162,11 +162,6 @@ class RegisterIntro extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         registerController.verify();
-                        // Navigator.pushReplacement(
-                        //     context,
-                        //     CupertinoPageRoute(
-                        //       builder: (context) => const MyCats(),
-                        //     ));
                       },
                       child: const Text(
                         "ادامه ",

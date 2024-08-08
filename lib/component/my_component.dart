@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/controller/home_screen_controller.dart';
 import 'package:techblog/component/text_style_manager.dart';
+import 'package:techblog/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TechDivider extends StatelessWidget {
@@ -103,14 +104,17 @@ myLaunchUrl(String url)async{
             padding: const EdgeInsets.only(left: 16.0),
             child: Center(child: Text(title,style: TextStyleManager.appBarTextStyle,)),
           )],
-          leading: Container(
-            height: 40,
-            width: 40,
-            decoration: BoxDecoration(
-                color: SolidColors.primaryColor.withAlpha(100),
-                shape: BoxShape.circle),
-                child: const Icon(CupertinoIcons.arrow_right , color: Colors.white,size: 32
-                ,),
+          leading: GestureDetector(
+            onTap: () => Get.toNamed(RouteName.routeMainScreen),
+            child: Container(
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(
+                  color: SolidColors.primaryColor.withAlpha(100),
+                  shape: BoxShape.circle),
+                  child: const Icon(CupertinoIcons.arrow_right , color: Colors.white,size: 32
+                  ,),
+            ),
           ),
         ),
       ),

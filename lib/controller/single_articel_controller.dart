@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 import 'package:techblog/component/api_constant.dart';
+import 'package:techblog/main.dart';
 import 'package:techblog/models/article_info_model.dart';
 import 'package:techblog/models/article_model.dart';
 import 'package:techblog/models/tags_model.dart';
 import 'package:techblog/services/dio_service.dart';
-import 'package:techblog/view/singel.dart';
 
 class SingleArticelController extends GetxController{
 
@@ -40,7 +40,7 @@ class SingleArticelController extends GetxController{
       relatedList.add(ArticleModel.fromJson(element));
     });
 
-    Get.to(single());
+    Get.toNamed(RouteName.routeSingleArticle);
   }
 
 

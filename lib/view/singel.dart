@@ -16,12 +16,9 @@ import 'package:techblog/gen/assets.gen.dart';
 
 // ignore: must_be_immutable
 class single extends StatelessWidget {
-  HomeScreenController homeScreenController = Get.put(HomeScreenController());
-  ListArticleController listArticleController =
-      Get.put(ListArticleController());
 
-  SingleArticelController singleArticelController =
-      Get.put(SingleArticelController());
+  var singleArticelController =
+      Get.find<SingleArticelController>();
 
   single({super.key});
 
@@ -75,7 +72,7 @@ class single extends StatelessWidget {
                                     width: 12,
                                   ),
                                   IconButton(
-                                      onPressed: () => Navigator.pop(context),
+                                      onPressed: () => Get.back(),
                                       icon: const Icon(
                                         CupertinoIcons.back,
                                         color: Colors.white,

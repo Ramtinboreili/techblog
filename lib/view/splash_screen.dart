@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/gen/assets.gen.dart';
-import 'package:techblog/view/main_screen.dart';
+import 'package:techblog/main.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -16,11 +17,7 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3)).then((onValue) {
-      Navigator.pushReplacement(context, CupertinoPageRoute(
-        builder: (context) {
-          return MainScreen();
-        },
-      ));
+      Get.offAndToNamed(RouteName.routeMainScreen);
     });
     super.initState();
   }

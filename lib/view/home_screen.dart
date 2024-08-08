@@ -103,10 +103,14 @@ class HomeScreen extends StatelessWidget {
                       )
                     ],
                   )
-                : const SpinKitFadingCircle(
-                    size: 50,
-                    color: SolidColors.primaryColor,
-                  )),
+                : const Center(
+                  child: SizedBox(
+                    child: SpinKitFadingCircle(
+                        size: 50,
+                        color: SolidColors.primaryColor,
+                      ),
+                  ),
+                )),
       ),
     );
   }
