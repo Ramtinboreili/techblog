@@ -34,15 +34,3 @@ class ListArticleController extends GetxController {
 }
 
 
-
-  // getArticleWithTag(String id) async {
-  //   articleList.clear();
-  //   loading.value=true;
-  //   var response = await DioService().getmethod('${ApiConstant.baseUrl}article/get.php?command=get_articles_with_tag_id&tag_id=$id&user_id=');
-  //   if (response.statusCode == 200) {
-  //     response.data.forEach((element) {
-  //       articleList.add(ArticleModel.fromJson(element));
-  //     });
-  //     loading.value=false;
-  //   }
-  // }

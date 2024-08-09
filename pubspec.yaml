@@ -88,6 +88,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/PAvatar.png
+    - assets/images/empty_state.png
     - assets/icons/
     - assets/icons/seeMore.png
     - assets/icons/down_cat_arrow.png

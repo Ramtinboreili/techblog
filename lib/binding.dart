@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:techblog/component/manage_article_controller.dart';
+import 'package:techblog/controller/manage_article_controller.dart';
 import 'package:techblog/controller/list_articel_controller.dart';
 import 'package:techblog/controller/register_controller.dart';
 import 'package:techblog/controller/single_articel_controller.dart';

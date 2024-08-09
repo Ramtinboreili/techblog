@@ -39,7 +39,9 @@ class MainScreen extends StatelessWidget {
                   scale: 3,
                 )),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    // Get.to(page);
+                  },
                   title: Text(
                     "پروفایل کاربری",
                     style: TextStyleManager.registerIntroStyle,

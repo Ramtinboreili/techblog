@@ -67,16 +67,16 @@ class RegisterController extends GetxController {
     switch (status) {
       case 'verified':
         var box = GetStorage();
-        box.write(token, response.data['token']);
-        box.write(userId, response.data['user_id']);
+        box.write(StorageConst.token, response.data['token']);
+        box.write(StorageConst.userId, response.data['user_id']);
 
         if (kDebugMode) {
           // ignore: prefer_interpolation_to_compose_strings
-          print("read:::" + box.read(token));
+          print("read:::" + box.read(StorageConst.token));
         }
         if (kDebugMode) {
           // ignore: prefer_interpolation_to_compose_strings
-          print("read:::" + box.read(userId));
+          print("read:::" + box.read(StorageConst.userId));
         }
 
         Get.offAll(MainScreen());
@@ -93,7 +93,8 @@ class RegisterController extends GetxController {
   }
 
   toggleLogin() {
-    if (GetStorage().read(token) == null) {
+    if (GetStorage().read(StorageConst.token
+    ) == null) {
       Get.to(RegisterIntro());
     } else {
       routeToWriteBottomSheet();
