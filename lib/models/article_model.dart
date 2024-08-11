@@ -15,15 +15,15 @@ class ArticleModel{
 
   ArticleModel({
 
-    required this.id,
-    required this.title,
-    required this.image,
-    required this.catId,
-    required this.catName,
-    required this.author,
-    required this.view,
-    required this.status,
-    required this.createdAt,
+    this.id,
+    this.title,
+    this.image,
+    this.catId,
+    this.catName,
+    this.author,
+    this.view,
+    this.status,
+    this.createdAt,
 });
 
   ArticleModel.fromJson(Map<String,dynamic> element){

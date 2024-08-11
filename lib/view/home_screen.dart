@@ -45,8 +45,10 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(
                         height: 28,
                       ),
+                      
                       //tag list
                       tags(),
+
                       //see More
                       Padding(
                         padding: EdgeInsets.fromLTRB(0, 24, bodyMargin, 12),

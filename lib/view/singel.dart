@@ -16,9 +16,7 @@ import 'package:techblog/gen/assets.gen.dart';
 
 // ignore: must_be_immutable
 class single extends StatelessWidget {
-
-  var singleArticelController =
-      Get.find<SingleArticelController>();
+  var singleArticelController = Get.find<SingleArticelController>();
 
   single({super.key});
 

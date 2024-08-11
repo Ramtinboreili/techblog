@@ -1,4 +1,3 @@
-
 import 'package:techblog/component/api_constant.dart';
 
 class ArticleInfoModel {
@@ -14,24 +13,25 @@ class ArticleInfoModel {
   String? createdAt;
   bool? isFavorite;
 
-  ArticleInfoModel();
+  ArticleInfoModel(
+    this.title,
+    this.content,
+    this.image,
+  );
 
-  ArticleInfoModel.fromJson(Map<String , dynamic> element){
-
-   id = element['info']['id'];
-   title= element['info']['title'];
-   content= element['info']['content'];
-   image=ApiConstant.hosttDlUrl+element['info']['image'];
-   catId= element['info']['cat_id'];
-   catName= element['info']['cat_name'];
-   author= element['info']['author'];
-   view= element['info']['view'];
-   status= element['info']['1'];
-   createdAt= element['info']['created_at'];
-   isFavorite= element['created_at'];
-
+  ArticleInfoModel.fromJson(Map<String, dynamic> element) {
+    id = element['info']['id'];
+    title = element['info']['title'];
+    content = element['info']['content'];
+    image = ApiConstant.hosttDlUrl + element['info']['image'];
+    catId = element['info']['cat_id'];
+    catName = element['info']['cat_name'];
+    author = element['info']['author'];
+    view = element['info']['view'];
+    status = element['info']['1'];
+    createdAt = element['info']['created_at'];
+    isFavorite = element['created_at'];
   }
-
 }
 
 // {

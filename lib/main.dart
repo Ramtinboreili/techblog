@@ -1,9 +1,7 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:techblog/binding.dart';
 import 'package:techblog/component/color_Manager.dart';
@@ -12,6 +10,7 @@ import 'package:techblog/my_http_overrides.dart';
 import 'package:techblog/view/main_Screen.dart';
 import 'package:techblog/view/manage_article.dart';
 import 'package:techblog/view/singel.dart';
+import 'package:techblog/view/singel_manage_article.dart';
 import 'package:techblog/view/splash_screen.dart';
 
 void main() async {
@@ -47,6 +46,10 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: RouteName.routeManageArticle,
             page: () => ManageArticle(),
+            binding: ArticleManageBinding()),
+        GetPage(
+            name: RouteName.singelManageArticle,
+            page: () => SingelManageArticle(),
             binding: ArticleManageBinding()),
       ],
       home: const Splashscreen(),
@@ -88,10 +91,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
 class RouteName {
-static  String routeMainScreen = "/main";
-static  String routeSingleArticle = "/SingleArticle";
-static  String routeManageArticle = "/ManageArticle";
+  static String routeMainScreen = "/main";
+  static String routeSingleArticle = "/SingleArticle";
+  static String routeManageArticle = "/ManageArticle";
+  static String singelManageArticle = "/SingelManageArticle";
 }

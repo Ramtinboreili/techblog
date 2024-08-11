@@ -7,6 +7,7 @@ import 'package:techblog/component/string_Manager.dart';
 import 'package:techblog/component/text_style_manager.dart';
 import 'package:techblog/controller/manage_article_controller.dart';
 import 'package:techblog/gen/assets.gen.dart';
+import 'package:techblog/main.dart';
 
 // ignore: must_be_immutable
 class ManageArticle extends StatelessWidget {
@@ -31,7 +32,7 @@ class ManageArticle extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () async {
-                            // Route to single manage '
+                            // Route to single manage 
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(top: 24),
@@ -112,19 +113,22 @@ class ManageArticle extends StatelessWidget {
                 : articleEmptyState()),
       ),
       bottomNavigationBar: Padding(
-            padding: const EdgeInsets.fromLTRB(20,4,20,20),
-            child: ElevatedButton(
-              style: ButtonStyle(fixedSize: WidgetStateProperty.all(Size(Get.width, 55))),
-              onPressed: () {},
-              child: const Text(
-                " بریم برای نوشتن یه مقاله باحال",
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
+        padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
+        child: ElevatedButton(
+          style: ButtonStyle(
+              fixedSize: WidgetStateProperty.all(Size(Get.width, 55))),
+          onPressed: () {
+            Get.toNamed(RouteName.singelManageArticle);
+          },
+          child: const Text(
+            " بریم برای نوشتن یه مقاله باحال",
+            style: TextStyle(color: Colors.white),
           ),
-    
+        ),
+      ),
     ));
   }
+
 // Empty State
   Center articleEmptyState() {
     return Center(
@@ -145,7 +149,6 @@ class ManageArticle extends StatelessWidget {
                     style: TextStyleManager.registerIntroStyle)),
           ),
           //elevated Button
-          
         ],
       ),
     );

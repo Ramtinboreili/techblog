@@ -55,7 +55,7 @@ class RegisterIntro extends StatelessWidget {
     ));
   }
 
-  // bottom sheet Email
+  // bottomSheet Email
   Future<dynamic> _showEmailBottomSheet(BuildContext context, Size size) {
     return showModalBottomSheet(
       isScrollControlled: true,
@@ -119,7 +119,7 @@ class RegisterIntro extends StatelessWidget {
     );
   }
 
-  // bottom sheet Activation code
+  // bottomSheet Activation code
   Future<dynamic> _activateCodeBottomSheet(BuildContext context, Size size) {
     return showModalBottomSheet(
       isScrollControlled: true,
