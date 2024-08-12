@@ -88,6 +88,7 @@ class MainScreen extends StatelessWidget {
             ),
           ),
         ),
+        //appBar
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 5,
