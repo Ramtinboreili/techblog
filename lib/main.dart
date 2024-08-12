@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
 
   ThemeData lightTheme() {
     return ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: SolidColors.primaryColor),
+        
         useMaterial3: true,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
@@ -87,7 +87,7 @@ class MyApp extends StatelessWidget {
               borderSide: const BorderSide(width: 4),
             ),
             filled: true,
-            fillColor: const Color.fromARGB(55, 175, 174, 175)));
+            ));
   }
 }
 

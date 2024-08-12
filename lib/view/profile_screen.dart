@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/component/string_Manager.dart';
 import 'package:techblog/gen/assets.gen.dart';
 import 'package:techblog/component/my_component.dart';
 import 'package:techblog/component/text_style_manager.dart';
+import 'package:techblog/view/my_cats.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({
@@ -77,7 +79,9 @@ class ProfileScreen extends StatelessWidget {
             //Profile buttons
             TechDivider(size: size),
             InkWell(
-              onTap: (() {}),
+              onTap: (() {
+                Get.to(const MyCats());
+              }),
               splashColor: SolidColors.primaryColor,
               child: SizedBox(
                   height: 50,

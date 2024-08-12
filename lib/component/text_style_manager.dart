@@ -18,6 +18,7 @@ class TextStyleManager {
     fontWeight: FontWeight.w400,
     color: SolidColors.posterSubTitle,
   );
+
   static TextStyle registerIntroStyle = const TextStyle(
     fontFamily: "dana",
     fontSize: 15,
@@ -31,18 +32,21 @@ class TextStyleManager {
     fontWeight: FontWeight.w700,
     color: SolidColors.hashTag,
   );
+
   static TextStyle tagTextStyle2 = const TextStyle(
     fontFamily: "dana",
     fontSize: 13,
     fontWeight: FontWeight.w700,
     color: SolidColors.blackColor,
   );
+
   static TextStyle viewHotestBlog = const TextStyle(
     fontFamily: "dana",
     fontSize: 14,
     fontWeight: FontWeight.bold,
     color: SolidColors.seeMore,
   );
+  
   static TextStyle blogListtitle = const TextStyle(
     fontFamily: "dana",
     fontSize: 14,

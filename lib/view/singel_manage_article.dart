@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:techblog/controller/file_controller.dart';
+import 'package:techblog/controller/home_screen_controller.dart';
 import 'package:techblog/controller/manage_article_controller.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/component/my_component.dart';
@@ -18,6 +19,7 @@ import 'package:techblog/services/pick_file.dart';
 class SingelManageArticle extends StatelessWidget {
   var manageArticleController = Get.find<ManageArticleController>();
   FileController fileController = Get.put(FileController());
+  var homeScreenController = Get.put(HomeScreenController());
   SingelManageArticle({super.key});
 
   @override
@@ -164,7 +166,7 @@ class SingelManageArticle extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.fromLTRB(0, 12, bodyMargin, 0),
                 child: GestureDetector(
-                  // onTap: () => Get.to(articleContentEditor()),
+                  onTap: () => getArticle(),
                   child: Row(
                     children: [
                       ImageIcon(
@@ -217,59 +219,33 @@ class SingelManageArticle extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(bodyMargin, 16, bodyMargin, 16),
+                child: Text(
+                  manageArticleController.articleInfoModel.value.catName== null ? 'هیج دسته بندی انتخاب نشده ':manageArticleController.articleInfoModel.value.catName!,
+                  maxLines: 2,
+                  style: TextStyleManager.articlelistText,
+                ),
+              ),
+              const SizedBox(height: 50,),
+              ElevatedButton(onPressed: () async
+              {
+               await manageArticleController.storeArticle();
+              }, child:  Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  manageArticleController.loading.value ?
+                  "WAITING..." :
+                  "SEND ARTICLE"),
+              ) )
 
-              // SizedBox(
-              //   height: 45,
-              //   child: ListView.builder(
-              //     scrollDirection: Axis.horizontal,
-              //     itemCount: manageArticleController.tagList.length,
-              //     itemBuilder: (context, index) {
-              //       return GestureDetector(
-              //         onTap: () async {
-              //           var tagid =
-              //               manageArticleController.tagList[index].id!;
-              //           await Get.find<ListArticleController>()
-              //               .getArticleListWithTagId(tagid);
-              //           Get.to(ArticleListScreen());
-              //         },
-              //         child: Padding(
-              //           padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-              //           child: Container(
-              //             decoration: BoxDecoration(
-              //               color:
-              //                   const Color.fromARGB(255, 226, 226, 226),
-              //               borderRadius: BorderRadius.circular(20),
-              //             ),
-              //             child: Padding(
-              //               padding:
-              //                   const EdgeInsets.fromLTRB(12, 4, 6, 4),
-              //               child: Row(
-              //                 children: [
-              //                   const SizedBox(
-              //                     width: 6,
-              //                   ),
-              //                   Center(
-              //                     child: Text(
-              //                       manageArticleController
-              //                           .tagList[index].title!,
-              //                       style: TextStyleManager.tagTextStyle2,
-              //                     ),
-              //                   ),
-              //                 ],
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //       );
-              //     },
-              //   ),
-              // ),
-              //SeeMore
+
             ],
           ),
         ),
       ),
     ));
+
   }
 
   getTitle() {
@@ -297,20 +273,59 @@ class SingelManageArticle extends StatelessWidget {
     );
   }
 
-  chooseCatsBottomSheet() {
-    Get.bottomSheet(Container(
-      height: Get.height / 1.5,
-      width: Get.width,
-      decoration: const BoxDecoration(
-          color: SolidColors.scaffoldBg,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(24), topRight: Radius.circular(24))),
-      child: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: [Text("Choose youre Category")],
+
+  getArticle() {
+    Get.defaultDialog(
+      title: " متن اصلی مقاله را وارد کنید",
+      titleStyle: TextStyleManager.posterTitle,
+      content: TextField(
+        controller: manageArticleController.titleTextEditingController,
+        keyboardType: TextInputType.text,
+        style: const TextStyle(color: SolidColors.colorTitle),
+        decoration: InputDecoration(
+          fillColor: SolidColors.scaffoldBg,
+          hintText: "اینجا بنویس ",
+          hintStyle: TextStyleManager.hintTextStyle,
         ),
       ),
-    ));
+      backgroundColor: SolidColors.primaryColor,
+      radius: 16,
+      confirm: ElevatedButton(
+          onPressed: () {
+            manageArticleController.updatetitle();
+            Get.back();
+          },
+          child: const Text("ثبت")),
+    );
+  }
+
+  chooseCatsBottomSheet() {
+    Get.bottomSheet(
+        Container(
+          height: Get.height / 1.5,
+          width: Get.width,
+          decoration: const BoxDecoration(
+              color: SolidColors.scaffoldBg,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(24), topRight: Radius.circular(24))),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                const Text("Choose youre Category"),
+                const SizedBox(
+                  height: 20,
+                ),
+                cats(
+                    homeScreenController: homeScreenController,
+                    manageArticleController: manageArticleController)
+              ],
+            ),
+          ),
+        ),
+        isScrollControlled: true,
+        persistent: true);
   }
 }
+
+

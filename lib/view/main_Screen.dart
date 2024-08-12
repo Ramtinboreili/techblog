@@ -27,6 +27,7 @@ class MainScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         key: _key,
+        //Drawer
         drawer: Drawer(
           backgroundColor: SolidColors.scaffoldBg,
           child: Padding(
