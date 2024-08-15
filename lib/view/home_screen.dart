@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:techblog/controller/single_articel_controller.dart';
+import 'package:techblog/main.dart';
 import 'package:techblog/view/articel_list_screen.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/component/string_Manager.dart';
@@ -237,49 +238,52 @@ class HomeScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: homeScreenController.topPodcastlist.length,
           itemBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 15),
-              child: Column(
-                children: [
-                  SizedBox(
-                      height: size.height / 5.2,
-                      width: size.width / 2.4,
-                      child: CachedNetworkImage(
-                        imageUrl:
-                            homeScreenController.topPodcastlist[index].poster!,
-                        imageBuilder: (context, imageProvider) {
-                          return Container(
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(16)),
-                                image: DecorationImage(
-                                    image: imageProvider, fit: BoxFit.cover)),
-                          );
-                        },
-                        placeholder: (context, url) =>
-                            const SpinKitFadingCircle(
-                          color: SolidColors.primaryColor,
-                          size: 22,
-                        ),
-                        errorWidget: (context, url, error) {
-                          return Image.asset(
-                            Assets.images.placeholder.path,
-                            fit: BoxFit.cover,
-                          );
-                        },
-                      )),
-                  const SizedBox(
-                    height: 6,
-                  ),
-                  SizedBox(
-                      width: size.width / 2.4,
-                      child: Text(
-                        homeScreenController.topPodcastlist[index].title!,
-                        style: TextStyleManager.blogListtitle,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ))
-                ],
+            return GestureDetector(
+              onTap: () => Get.toNamed(RouteName.singelPodcast,arguments: homeScreenController.topPodcastlist[index]),
+              child: Padding(
+                padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 15),
+                child: Column(
+                  children: [
+                    SizedBox(
+                        height: size.height / 5.2,
+                        width: size.width / 2.4,
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              homeScreenController.topPodcastlist[index].poster!,
+                          imageBuilder: (context, imageProvider) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      const BorderRadius.all(Radius.circular(16)),
+                                  image: DecorationImage(
+                                      image: imageProvider, fit: BoxFit.cover)),
+                            );
+                          },
+                          placeholder: (context, url) =>
+                              const SpinKitFadingCircle(
+                            color: SolidColors.primaryColor,
+                            size: 22,
+                          ),
+                          errorWidget: (context, url, error) {
+                            return Image.asset(
+                              Assets.images.placeholder.path,
+                              fit: BoxFit.cover,
+                            );
+                          },
+                        )),
+                    const SizedBox(
+                      height: 6,
+                    ),
+                    SizedBox(
+                        width: size.width / 2.4,
+                        child: Text(
+                          homeScreenController.topPodcastlist[index].title!,
+                          style: TextStyleManager.blogListtitle,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ))
+                  ],
+                ),
               ),
             );
           },

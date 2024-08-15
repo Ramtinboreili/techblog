@@ -5,6 +5,7 @@ import 'package:techblog/component/string_Manager.dart';
 import 'package:techblog/gen/assets.gen.dart';
 import 'package:techblog/component/my_component.dart';
 import 'package:techblog/component/text_style_manager.dart';
+import 'package:techblog/services/pick_file.dart';
 import 'package:techblog/view/my_cats.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -37,21 +38,26 @@ class ProfileScreen extends StatelessWidget {
               height: 12,
             ),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ImageIcon(
-                  Assets.icons.seeMore.provider(),
-                  color: SolidColors.seeMore,
-                ),
-                const SizedBox(
-                  width: 6,
-                ),
-                Text(
-                  MyStrings.imageProfileEdit,
-                  style: TextStyleManager.viewHotestBlog,
-                )
-              ],
+            GestureDetector(
+              onTap: () {
+                pickFiles();
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ImageIcon(
+                    Assets.icons.seeMore.provider(),
+                    color: SolidColors.seeMore,
+                  ),
+                  const SizedBox(
+                    width: 6,
+                  ),
+                  Text(
+                    MyStrings.imageProfileEdit,
+                    style: TextStyleManager.viewHotestBlog,
+                  )
+                ],
+              ),
             ),
             const SizedBox(
               height: 40,
@@ -59,7 +65,7 @@ class ProfileScreen extends StatelessWidget {
             //name and Email
             Center(
               child: Text(
-                "رامتین یریلی ",
+                "رامتین بریلی ",
                 style: TextStyleManager.profilename,
               ),
             ),

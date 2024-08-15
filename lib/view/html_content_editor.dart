@@ -27,13 +27,17 @@
 //               children: [
 //                 HtmlEditor(
 //                   controller: controller,
-//                   htmlEditorOptions: HtmlEditorOptions(
-//                     hint: MyStrings.hintArticleContentEditor,
+//                   initialText: manageArticleController.articleInfoModel.value.content!,
+//                   hint: MyStrings.hintArticleContentEditor,
+                  
+//                   options: const HtmlEditorOptions(
+                    
 //                     shouldEnsureVisible: true,
-//                     initialText: manageArticleController.articleInfoModel.value.content!
+                    
 //                   ),
 //                   callbacks: Callbacks(
-//                     onChangeContent: (p0) {
+
+//                     onChange: (p0) {
 //                       manageArticleController.articleInfoModel.update((val) {
 //                         val?.content =p0;
 //                       },);

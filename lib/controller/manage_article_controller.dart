@@ -53,26 +53,22 @@ class ManageArticleController extends GetxController {
     );
   }
 
-  storeArticle()async{
-
+  storeArticle() async {
     var fileController = Get.find<FileController>();
-    loading.value = true ; 
-    Map<String,dynamic> map = {
-      ApiKeyConstant.title : articleInfoModel.value.title,
-      ApiKeyConstant.catId : articleInfoModel.value.catId,
-      ApiKeyConstant.command : Commands.store,
-      ApiKeyConstant.content : articleInfoModel.value.content,
-      ApiKeyConstant.image :  await dio.MultipartFile.fromFile(fileController.file.value.path!),
-      ApiKeyConstant.userId : GetStorage().read(StorageConst.userId),
-      ApiKeyConstant.tagList : '[ ]',
+    loading.value = true;
+    Map<String, dynamic> map = {
+      ApiKeyConstant.title: articleInfoModel.value.title,
+      ApiKeyConstant.catId: articleInfoModel.value.catId,
+      ApiKeyConstant.command: Commands.store,
+      ApiKeyConstant.content: articleInfoModel.value.content,
+      ApiKeyConstant.image:
+          await dio.MultipartFile.fromFile(fileController.file.value.path!),
+      ApiKeyConstant.userId: GetStorage().read(StorageConst.userId),
+      ApiKeyConstant.tagList: '[ ]',
     };
     var response = await DioService().postmethod(map, ApiConstant.articlePost);
     log(response.data.toString());
 
-    loading.value = false ;
-  
+    loading.value = false;
   }
-
-
-
 }

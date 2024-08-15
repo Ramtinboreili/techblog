@@ -9,8 +9,8 @@ import 'package:techblog/component/text_style_manager.dart';
 import 'package:techblog/my_http_overrides.dart';
 import 'package:techblog/view/main_Screen.dart';
 import 'package:techblog/view/manage_article.dart';
+import 'package:techblog/view/podcast/single_podcast.dart';
 import 'package:techblog/view/singel.dart';
-import 'package:techblog/view/singel_manage_article.dart';
 import 'package:techblog/view/splash_screen.dart';
 
 void main() async {
@@ -48,12 +48,12 @@ class MyApp extends StatelessWidget {
             page: () => ManageArticle(),
             binding: ArticleManageBinding()),
         GetPage(
-            name: RouteName.singelManageArticle,
-            page: () => SingelManageArticle(),
-            binding: ArticleManageBinding()),
+            name: RouteName.singelPodcast,
+            page: () =>  SinglePodcast(),
+            ),
       ],
       home: const Splashscreen(),
-      // home: const RegisterIntro(),
+      // home:  SinglePodcast(),
     );
   }
 
@@ -92,8 +92,12 @@ class MyApp extends StatelessWidget {
 }
 
 class RouteName {
+
+  RouteName._();
+
   static String routeMainScreen = "/main";
   static String routeSingleArticle = "/SingleArticle";
   static String routeManageArticle = "/ManageArticle";
   static String singelManageArticle = "/SingelManageArticle";
+  static String singelPodcast = "/singelPodcast";
 }

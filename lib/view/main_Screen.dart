@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:techblog/component/color_Manager.dart';
 import 'package:techblog/component/my_component.dart';
+import 'package:techblog/component/my_drcoratins.dart';
 import 'package:techblog/component/string_Manager.dart';
 import 'package:techblog/component/text_style_manager.dart';
 import 'package:techblog/controller/register_controller.dart';
@@ -41,7 +42,8 @@ class MainScreen extends StatelessWidget {
                 )),
                 ListTile(
                   onTap: () {
-                    
+                    selectedPageIndex.value=1;
+                    Get.back();
                   },
                   title: Text(
                     "پروفایل کاربری",
@@ -171,12 +173,7 @@ class BottomNavBar extends StatelessWidget {
           child: Container(
             height: size.height / 14,
             width: size.width / 15,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(28)),
-                gradient: LinearGradient(
-                    colors: GradientColors.bottomNav,
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight)),
+            decoration: MyDecorations.mainGradient,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

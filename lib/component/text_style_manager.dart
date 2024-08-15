@@ -115,6 +115,12 @@ class TextStyleManager {
     fontWeight: FontWeight.bold,
     color: SolidColors.blackColor,
   );
+  static TextStyle selectedPOdcast = const TextStyle(
+    fontFamily: "dana",
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
+    color: SolidColors.seeMore,
+  );
   static TextStyle singleArticlelistText = const TextStyle(
     fontFamily: "dana",
     fontSize: 20,

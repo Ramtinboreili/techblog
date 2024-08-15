@@ -166,7 +166,10 @@ class SingelManageArticle extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.fromLTRB(0, 12, bodyMargin, 0),
                 child: GestureDetector(
-                  onTap: () => getArticle(),
+                  onTap: () {
+                    
+                  },
+                  
                   child: Row(
                     children: [
                       ImageIcon(
