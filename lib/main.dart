@@ -48,9 +48,9 @@ class MyApp extends StatelessWidget {
             page: () => ManageArticle(),
             binding: ArticleManageBinding()),
         GetPage(
-            name: RouteName.singelPodcast,
-            page: () =>  SinglePodcast(),
-            ),
+          name: RouteName.singelPodcast,
+          page: () => SinglePodcast(),
+        ),
       ],
       home: const Splashscreen(),
       // home:  SinglePodcast(),
@@ -59,7 +59,6 @@ class MyApp extends StatelessWidget {
 
   ThemeData lightTheme() {
     return ThemeData(
-        
         useMaterial3: true,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
@@ -82,17 +81,16 @@ class MyApp extends StatelessWidget {
           ),
         ),
         inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide: const BorderSide(width: 4),
-            ),
-            filled: true,
-            ));
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(width: 4),
+          ),
+          filled: true,
+        ));
   }
 }
 
 class RouteName {
-
   RouteName._();
 
   static String routeMainScreen = "/main";
