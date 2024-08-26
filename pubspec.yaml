@@ -57,6 +57,7 @@ dependencies:
   audio_video_progress_bar: ^2.0.3
 
 
+  vector_graphics: any
 flutter_gen:
   integrations:
     flutter_svg: true

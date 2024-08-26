@@ -144,7 +144,7 @@ class MainScreen extends StatelessWidget {
 // bottom NavBar
 // ignore: must_be_immutable
 class BottomNavBar extends StatelessWidget {
-  BottomNavBar({
+  const BottomNavBar({
     super.key,
     required this.size,
     required this.bodyMargin,

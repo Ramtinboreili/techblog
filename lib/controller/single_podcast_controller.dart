@@ -46,8 +46,8 @@ class SinglePodcastController extends GetxController {
     loading.value = false;
   }
 
-  Rx<Duration> progressValue = Duration(seconds: 0).obs;
-  Rx<Duration> bufferedValue = Duration(seconds: 0).obs;
+  Rx<Duration> progressValue = const Duration(seconds: 0).obs;
+  Rx<Duration> bufferedValue = const Duration(seconds: 0).obs;
   Timer? timer;
 
   startProgress() {
@@ -67,8 +67,8 @@ class SinglePodcastController extends GetxController {
       bufferedValue.value = player.bufferedPosition;
       if (duration <= 0) {
         timer.cancel();
-        progressValue.value = Duration(seconds: 0);
-        bufferedValue.value = Duration(seconds: 0);
+        progressValue.value = const Duration(seconds: 0);
+        bufferedValue.value = const Duration(seconds: 0);
       }
     });
   }
