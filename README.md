@@ -1,16 +1,20 @@
 # techblog
 
 A new Flutter project.
+tech Blog 
+with master @sasansafari
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+<div align="center">
 
-A few resources to get you started if this is your first Flutter project:
+<img src="https://ramtindev.storage.c2.liara.space/Tech%20Blog%20Screens/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-09-13%20at%2019.24.19.png" align="center" height="" width="200" />
+<img src="https://ramtindev.storage.c2.liara.space/Tech%20Blog%20Screens/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-09-13%20at%2019.24.24.png" align="center" height="" width="200" />
+<img src="https://ramtindev.storage.c2.liara.space/Tech%20Blog%20Screens/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-09-13%20at%2019.24.33.png" align="center" height="" width="200" />
+<img src="https://ramtindev.storage.c2.liara.space/Tech%20Blog%20Screens/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-09-13%20at%2019.24.40.png" align="center" height="" width="200" />
+<img src="https://ramtindev.storage.c2.liara.space/Tech%20Blog%20Screens/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-09-13%20at%2019.33.51.png" align="center" height="" width="200" />
+<img src="https://ramtindev.storage.c2.liara.space/Tech%20Blog%20Screens/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20Max%20-%202024-09-13%20at%2019.24.57.png" align="center" height="" width="200" />
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+</div>  
+  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
