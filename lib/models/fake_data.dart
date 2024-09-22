@@ -2,29 +2,24 @@ import 'package:techblog/gen/assets.gen.dart';
 import 'package:techblog/models/blog_model.dart';
 import 'package:techblog/models/data_models.dart';
 
-Map homepagePosterMap ={
-
-  "imageAsset" : Assets.images.programming.path,
-  "writer" : "ملیکا عزیزی",
-  "date" : "یک روز پیش",
-  "view" : "251",
-  "title" : "دوازده قدم برنامه نویسی یک دوره ی...",
+Map homepagePosterMap = {
+  "imageAsset": Assets.images.programming.path,
+  "writer": "ملیکا عزیزی",
+  "date": "یک روز پیش",
+  "view": "251",
+  "title": "دوازده قدم برنامه نویسی یک دوره ی...",
 };
 
-
-//blog fake data 
+//blog fake data
 
 List<HastagDataModels> taglist = [
-
   HastagDataModels(title: "جاوا"),
   HastagDataModels(title: "کاتلین"),
   HastagDataModels(title: "وب"),
   HastagDataModels(title: "هوش مصنوعی"),
   HastagDataModels(title: "دارت"),
   HastagDataModels(title: "iot")
-
 ];
-
 
 List<HastagDataModels> selectedTags = [];
 

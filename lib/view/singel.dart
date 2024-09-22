@@ -139,7 +139,7 @@ class single extends StatelessWidget {
                     ),
                     //Article
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(16),
                       child: HtmlWidget(
                         singleArticelController.articleInfoModel.value.content!,
                         textStyle: TextStyleManager.singleArticlelistText,

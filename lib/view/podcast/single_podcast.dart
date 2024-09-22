@@ -208,7 +208,7 @@ class SinglePodcast extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: Get.height / 2,
+                    height: Get.height / 2.1,
                   )
                 ],
               ),
