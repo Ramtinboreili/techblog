@@ -13,6 +13,7 @@ class ArticleBinding implements Bindings {
     Get.lazyPut(() => SingleArticelController());
   }
 }
+
 class ArticleManageBinding implements Bindings {
   @override
   void dependencies() {
