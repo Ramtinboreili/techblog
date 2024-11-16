@@ -54,7 +54,6 @@ class MyApp extends StatelessWidget {
         ),
       ],
       home: const Splashscreen(),
-      // home:  SinglePodcast(),
     );
   }
 
